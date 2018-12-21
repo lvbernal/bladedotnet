@@ -8,7 +8,6 @@ namespace bladedotnet
         static void Main(string[] args)
         {
             var handle = GetDeviceHandle();
-            AttachXB200(handle);
             Console.WriteLine("Device handle: " + handle);
 
             if (handle == IntPtr.Zero)
@@ -16,6 +15,8 @@ namespace bladedotnet
                 Console.WriteLine("No device detected");
                 return;
             }
+
+            AttachXB200(handle);
 
             var sampleRate = 5_000_000;
             var srResult = SetSampleRate(handle, 0, (int)sampleRate);
